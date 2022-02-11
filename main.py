@@ -95,6 +95,8 @@ def planet_one_inside():
     print(".v....v........|v...")
     print("--___---____---|--__")
     bars()
+        
+    
 #planet 2 art
 def planet_two_outside():
     print("........_____........")
@@ -133,6 +135,7 @@ def space_map_code():
         planet_one_outside()
         x = input(": ")
         planet_one_inside()
+        planet_one_code()
     elif pick_planet == 2:
         ship_travel_art()
         planet_two_outside()
@@ -157,12 +160,7 @@ def space_ship_inside():
 #start menu art
 def start_menu():
     bars()
-    print("[][][][][][][][][][+")
-    print("[][][+][][]Ethans[][")
-    print("[][][][][]Sky[][][][")
-    print("[+][][][][][][][][][")
-    print("[][][][][][][][][+][")
-    print("[][+][][][][+][][][]")
+    print("[----No mans code----]")
     bars()
 #gas menu art
 def gas_menu():
@@ -189,6 +187,27 @@ def space_ship_code():
         print(energy)
         bars()
         space_ship_code()
+        
+
+def planet_one_code():
+    global gas
+    while True:
+        p_one_choice = int(input("Do you wanna restock gas(1) get a bounty(2) learn some planet lore(3) or go back to your ship(4):"))
+        if p_one_choice == 1:
+            print("Re-stocked!")
+            gas = 1000
+            continue
+        elif p_one_choice == 2:
+            print("Next time youre back in your ship if you type 35718 you will activate a ship fight")
+            continue
+        elif p_one_choice == 3:
+            print("This planet is 20000 light years old and was founded by the creator of the first space ship once he left earth due to the bomb")
+            continue
+        else:
+            break
+    ship_travel_art()
+    space_ship_code()
+
 #start menu
 def starting():
     start_menu()
