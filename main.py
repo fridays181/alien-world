@@ -1,32 +1,69 @@
+#goals of the game
 """
 add more planets(2 more)
-add fighting
 add inventory
 each journey makes you lose gas and energy
 import old staship fighting file
-add graphics to energy and gas(battery with percent in it and gas can with percent in it)
 add stuff to do on the planets
-add ship health
+add ship health that scales with ship fights
+fix energy lvls
 """
-
-
-
+#importing in libs
 import random
 import numpy
+#presets
 gas = 1000
 energy = 500
+ship_health_status = 6000
 
+#int --> str
+def instr():
+    global gas_string
+    global ship_health_status_string
+    global gas
+    global energy_string
+    global energy
+    global ship_health_status
+    gas_string = str(gas)
+    energy_string = str(energy)
+    ship_health_status_string = str(ship_health_status)
+#styling stuff
 def bars():
     print("-0=-------------------------------=0-")
     
-
+#copy past formats for the art
 #....................
 #====================
 #[][][][][][][][][][]
 
+#gas can art
+def gas_cas():
+    instr()
+    bars()
+    global gas_string
+    print("...........[|]......")
+    print("......./####[]......")
+    print("....../#######\.....")
+    print("......|##" + gas_string +"###\....")
+    print("......|#########|...")
+    print("====================")
+#energy regen art
+def energy_self():
+    instr()
+    bars()
+    print("........"+ energy_string +".........")
+    print("....................")
+    print("...==......(o)......")
+    print("..|%%|..../|#|\.....")
+    print("..|%%|.....|#|......")
+    print("..|__|...../.\......")
+    print("....................")
 #ship traveling art
 def ship_travel_art():
+    instr()
     bars()
+    global ship_health_status_string
+    print("....[Ship health is " + ship_health_status_string +"]..")
     print("...............+.......+...")
     print(".....+.....................")
     print("......_______-\.......33...")
@@ -38,13 +75,13 @@ def ship_travel_art():
     x = input(": ")
 #planet one art
 def planet_one_outside():
-    print(".....................")
+    print("..................+..")
     print("......==========.....")
-    print("....=------===--=....")
+    print("..+.=------===--=....")
     print("....=---=---===--=...")
     print(".....=--==-------=...")
     print("......===========....")
-    print(".....................")
+    print("..+..................")
 def planet_one_inside():
     bars()
     print("========{The forest}")
@@ -130,11 +167,10 @@ def start_menu():
 #gas menu art
 def gas_menu():
     global gas
-    bars()
+    gas_cas()
     print("==gas levels==")
     print(gas)
     print("==============")
-    bars()
 #main space ship info
 def space_ship_code():
     global energy
@@ -147,14 +183,13 @@ def space_ship_code():
         space_ship_code()
     else:
         bars()#add true false so you can only sleep once per mission completion
+        energy_self()
         print("you sleep and increase your energy levels to: ")
         energy = energy + 100
         print(energy)
         bars()
         space_ship_code()
-
-
-
+#start menu
 def starting():
     start_menu()
     x = input("Press enter to go to the spaceship: ")
