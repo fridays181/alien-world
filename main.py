@@ -7,6 +7,7 @@ import old staship fighting file
 add stuff to do on the planets
 add ship health that scales with ship fights
 fix energy lvls
+add things to do on the planets 
 """
 #importing in libs
 import random
