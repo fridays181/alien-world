@@ -1,3 +1,21 @@
+"""
+add more planets
+
+add map coding
+
+add fighting
+
+add inventory
+
+each journey makes you lose gas and energy
+
+import old staship fighting file
+
+add graphics to energy and gas
+"""
+
+
+
 import random
 import numpy
 gas = 1000
